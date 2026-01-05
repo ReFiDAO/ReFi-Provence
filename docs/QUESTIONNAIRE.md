@@ -60,7 +60,7 @@ A short phrase that appears after your site name in browser tabs and search resu
 *Example: "A network society to regenerate the earth"*
 *Example: "Regenerative Finance for the Mediterranean"*
 ```
-Your answer: _______________
+Your answer: "Technology for nature. A regenerative hub from Provence."
 ```
 
 ### 1.3 Domain
@@ -152,17 +152,16 @@ Choose a color scheme that reflects your node's identity. You can either:
 | **Sunset** | Coral (#E67E50) | Energetic, warm, welcoming | Community/social focus |
 
 ```
-Your choice: [X] Ocean Blue  [ ] Forest Green  [ ] Mediterranean  [ ] Earth Tones  [ ] Sunset  [ ] Custom (see Option B)
 ```
-
+Your choice: [ ] Ocean Blue  [ ] Forest Green  [ ] Mediterranean  [ ] Earth Tones  [ ] Sunset  [X] Custom ()
 #### Option B: Custom Colors
 
 If you have existing brand colors, provide them here:
 
 ```
-Primary color (main brand color): #_______________
-Secondary color (links, accents): #_______________
-Background color (light mode): #_______________ (or "default warm sand")
+Primary color (main brand color): #1fb5cb
+Secondary color (links, accents): #024b5a
+Background color (light mode): #f8f6e2 (or "default warm sand")
 ```
 
 > **Need help picking colors?** Try [Coolors](https://coolors.co/) or [Adobe Color](https://color.adobe.com/)
@@ -179,7 +178,7 @@ What feeling should your typography convey?
 | **Bold & Expressive** | Outfit, Sora | Creative/activist nodes |
 
 ```
-Your preference: [ ] Modern  [ ] Classic  [ ] Friendly  [ ] Bold  [ ] No preference (use default)
+Your preference: [ ] Modern  [ ] Classic  [ ] Friendly  [X] Bold  [ ] No preference (use default)
 ```
 
 ### 3.3 Logo & Favicon
@@ -193,8 +192,9 @@ Please provide:
 | Logo (dark mode) | PNG or SVG | Same as header logo | Optional |
 
 ```
-Do you have a logo ready? [ ] Yes  [ ] No, need help creating one
-File location/link: _______________
+Do you have a logo ready? [ ] Yes  [X] No, need help creating one
+File location/link: we have the logos, but we need help with the Favicon. Here's the drive folder with logos in different formats and colors
+https://drive.google.com/drive/folders/1KA-tpEZbULovccXibwb2T_osQ7-PlRyE?usp=sharing
 ```
 
 ---
@@ -207,10 +207,10 @@ What pages should appear in your main navigation menu? List them in order.
 
 | # | Display Name | Link Type | Destination |
 |---|--------------|-----------|-------------|
-| 1 | | [ ] Internal page  [ ] External link | |
-| 2 | | [ ] Internal page  [ ] External link | |
-| 3 | | [ ] Internal page  [ ] External link | |
-| 4 | | [ ] Internal page  [ ] External link | |
+| 1 | About| [X] Internal page  [ ] External link | |
+| 2 | Events| [X] Internal page  [ ] External link | |
+| 3 | Partners| [X] Internal page  [ ] External link | |
+| 4 | Join Community| [X] Internal page  [ ] External link | |
 | 5 | | [ ] Internal page  [ ] External link | |
 
 **Examples from existing nodes:**
@@ -240,12 +240,12 @@ Your links: "LinkedIn", "Telegram", "Twitter/X", "ReFi DAO"
 
 | Platform | URL |
 |----------|-----|
-| Twitter/X | |
+| Twitter/X | https://x.com/ReFi_Provence|
 | Discord | |
-| Telegram | |
-| LinkedIn | https://www.linkedin.com/company/refi-paca/ |
+| Telegram | https://t.me/refipaca|
+| LinkedIn | https://www.linkedin.com/company/refi-provence/|
 | GitHub | |
-| Other | |
+| Other | youtube |
 
 ---
 
@@ -263,7 +263,7 @@ Which sections would you like on your homepage? Check all that apply:
 | **Past Events** | Showcase previous activities | [X] Yes |
 | **Team/About Us** | Introduce your core team | [X] Yes |
 | **Partners** | Display partner/sponsor logos | [X] Yes |
-| **Get Involved** | Call to action for participation | [X] Yes |
+| **Join Community** | Call to action for participation | [X] Yes |
 | **What is ReFi?** | Educational section about ReFi | [X] Yes |
 
 ### 5.2 Additional Pages
@@ -278,8 +278,8 @@ What other pages do you need beyond the homepage?
 | Events | | [ ] High  [ ] Medium  [ ] Low |
 | Resources | | [ ] High  [ ] Medium  [ ] Low |
 | Blog | | [ ] High  [ ] Medium  [ ] Low |
-| Contact | | [ ] High  [ ] Medium  [ ] Low |
-| Other: _______ | | [ ] High  [ ] Medium  [ ] Low |
+| Contact |Invite people to contact us for any proposition or question | [X] High  [ ] Medium  [ ] Low |
+| Other: How to support us |Share the ways in which they can support us (donations, partnerships) | [X] High  [ ] Medium  [ ] Low |
 
 ### 5.3 Multi-Language Support
 
@@ -306,7 +306,7 @@ Default language: French (fr)
 
 *Example: "Seeding pathways toward just and resilient economies"*
 ```
-Your title: _______________
+Your title: "What if technological innovations could help nature?"
 ```
 
 **Description** (2-3 sentences about your node):
@@ -315,20 +315,19 @@ Your title: _______________
 ```
 
 Your description:
-_______________
-_______________
-_______________
+"We connect Southern France's regenerative movements with global innovations in finance, technology, and governance to accelerate the transition toward a life-centered economy."
 ```
 
 **Call-to-Action Button**:
 ```
-Button text: _______________ (e.g., "Learn More", "Get Involved", "Join Us")
-Button link: _______________ (e.g., "#about", "/contact")
+Button text: "Join Us" (e.g., "Learn More", "Get Involved", "Join Us")
+Button link: "#contact" (e.g., "#about", "/contact")
 ```
 
 ### 6.2 What We Do
 
 List 3-6 key activities your node focuses on:
+***The same as ReFi BCN
 
 | Activity | Icon | Short Description |
 |----------|------|-------------------|
@@ -339,14 +338,16 @@ List 3-6 key activities your node focuses on:
 | 5. | | |
 | 6. | | |
 
+
+
 > **Icon suggestions**: Use emoji or describe what icon you'd like (e.g., "money/funding", "people/community", "plant/nature")
 
 ### 6.3 Team Members
 
 | Name | Role | Bio (2-3 sentences) | Photo? | LinkedIn/Twitter |
 |------|------|---------------------|--------|------------------|
-| | | | [ ] Yes | |
-| | | | [ ] Yes | |
+|Flora |Co-founder | | [X] Yes |https://www.linkedin.com/in/flora-event/ |
+|Alejandra|Co-founder | | [X] Yes |https://www.linkedin.com/in/alejandra-verde-medina/ |
 | | | | [ ] Yes | |
 | | | | [ ] Yes | |
 
@@ -361,7 +362,7 @@ Use this section to share any additional context that will help guide the websit
 What do you want visitors to feel or understand when they land on your website?
 
 ```
-
+Curiosity about how tech can serve nature, what the community is about, what is ReFi,  how can they get involved.
 
 
 
@@ -372,7 +373,7 @@ What do you want visitors to feel or understand when they land on your website?
 What are the main goals for this website? (e.g., attract partners, onboard community members, showcase projects, raise awareness)
 
 ```
-
+"attract partners, onboard community members, showcase projects, raise awareness"
 
 
 
@@ -383,6 +384,9 @@ What are the main goals for this website? (e.g., attract partners, onboard commu
 Are there any websites, designs, or aesthetics you'd like us to draw inspiration from?
 
 ```
+https://www.rifaisicilia.com/ we like that the squares/frames of each section are soft and modern,ie rounded angles, and not too accentuated
+
+https://luma.com/gq6okdgy the colors and spirit of the image we used for this event
 
 
 
@@ -394,7 +398,7 @@ Are there any websites, designs, or aesthetics you'd like us to draw inspiration
 Any particular features, sections, or functionality you need that weren't covered above?
 
 ```
-- Search functionality: Yes
+- Search functionality: Not necessary
 - Timeline: As soon as possible
 - Technical involvement: Active — I want to learn and make changes myself
 ```
@@ -404,7 +408,10 @@ Any particular features, sections, or functionality you need that weren't covere
 Anything you specifically don't want on the website?
 
 ```
-
+Use icons instead of emojis, we will make an icon library
+Section frames too accentuated and sharp angles
+Color monotony
+On the desktop version, use all the width
 
 
 
