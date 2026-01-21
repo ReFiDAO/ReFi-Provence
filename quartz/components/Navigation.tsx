@@ -5,6 +5,7 @@ import { FullSlug } from "../util/path"
 
 const LOCALE_PREFIXES: Record<string, string> = {
   "en-US": "en",
+  "fr-FR": "fr",
   "ca-ES": "ca",
   "es-ES": "es",
 }
@@ -13,15 +14,24 @@ function getCurrentLanguage(slug: FullSlug): string {
   const segments = slug.split("/").filter((s) => s.length > 0)
   const firstSegment = segments[0]
   
+  if (firstSegment === "fr") return "fr-FR"
   if (firstSegment === "ca") return "ca-ES"
   if (firstSegment === "es") return "es-ES"
   if (firstSegment === "en") return "en-US"
   
-  return "en-US"
+  return "fr-FR"
 }
 
 function getLanguagePrefix(locale: string, slug: FullSlug): string {
-  const prefix = LOCALE_PREFIXES[locale] || "en"
+  const prefix = LOCALE_PREFIXES[locale] || "fr"
+  
+  // For French (default), check if we're explicitly on /fr/ path
+  if (prefix === "fr") {
+    const segments = slug.split("/").filter((s) => s.length > 0)
+    const firstSegment = segments[0]
+    // If slug starts with "fr", use /fr prefix, otherwise use root
+    return firstSegment === "fr" ? "/fr" : ""
+  }
   
   // For English, check if we're explicitly on /en/ path
   if (prefix === "en") {
@@ -60,15 +70,22 @@ export default (() => {
     
     const langPrefix = getLanguagePrefix(detectedLang, currentSlug)
     
+    // Build page links with language prefix
+    const getPageLink = (page: string): string => {
+      if (langPrefix) {
+        return `${langPrefix}/${page}`
+      }
+      return `/${page}`
+    }
+
     return (
       <nav class={`navigation ${displayClass ?? ""}`} aria-label="Primary navigation">
         <div class="nav-shell">
           <ul id="nav-menu" class="nav-links">
-            <li><a href={getHomepageHashLink(langPrefix, "about")}>{navCopy.about}</a></li>
-            <li><a href={getHomepageHashLink(langPrefix, "events")}>{navCopy.events}</a></li>
-            <li><a href={getHomepageHashLink(langPrefix, "regenerant-catalunya")}>{navCopy.regenerantCatalunya}</a></li>
-            <li><a href={getHomepageHashLink(langPrefix, "ecosystem-map")}>{navCopy.ecosystemMap}</a></li>
-            <li><a href={getHomepageHashLink(langPrefix, "contact")}>{navCopy.contact}</a></li>
+            <li><a href={getPageLink("about")}>{navCopy.about}</a></li>
+            <li><a href={getPageLink("events")}>{navCopy.events}</a></li>
+            <li><a href={getPageLink("partners")}>{navCopy.partners}</a></li>
+            <li><a href={getPageLink("join-community")}>{navCopy.joinCommunity}</a></li>
           </ul>
           <button
             class="nav-toggle action-button"

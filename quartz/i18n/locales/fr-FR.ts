@@ -59,6 +59,18 @@ export default {
     contentMeta: {
       readingTime: ({ minutes }) => `${minutes} min de lecture`,
     },
+    languageSwitcher: {
+      label: "Langue",
+      selectLanguage: "Sélectionner la langue",
+    },
+    navigation: {
+      about: "À propos",
+      events: "Événements",
+      partners: "Partenaires",
+      joinCommunity: "Rejoindre la communauté",
+      contact: "Contact",
+      blog: "Blog",
+    },
   },
   pages: {
     rss: {

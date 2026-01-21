@@ -21,20 +21,25 @@ body {
   box-sizing: border-box;
 }
 
-// Brand colors as CSS variables
+// Brand colors as CSS variables - ReFi Provence
 :root {
   --brand-purple: #6B4EA3;
   --brand-purple-light: #8B6EC3;
   --brand-orange: #E67E50;
   --brand-orange-light: #F49870;
   --brand-forest: #214033;
-  --brand-sand: #E6DFD7;
+  --brand-sand: #f8f6e2;
   
-  // Blue color scheme (primary)
-  --blue-dark: #092045;       // Dark navy (main)
-  --blue-medium: #1A3A6B;     // Medium blue (links)
-  --blue-light: #2E5491;      // Light blue (hover states)
-  --blue-highlight: rgba(9, 32, 69, 0.15);  // Transparent blue for backgrounds
+  // ReFi Provence color scheme (teal)
+  --blue-dark: #024b5a;       // Dark teal (main)
+  --blue-medium: #1fb5cb;     // Teal (links, primary)
+  --blue-light: #4dd4e8;      // Light teal (hover states)
+  --blue-highlight: rgba(31, 181, 203, 0.15);  // Transparent teal for backgrounds
+  
+  // Border radius for soft, modern frames
+  --border-radius: 12px;
+  --border-radius-small: 8px;
+  --border-radius-large: 16px;
   --action-btn-size: 46px;
   --action-btn-border-width: 1.5px;
   --action-btn-border: var(--action-btn-border-width) solid var(--blue-dark);
@@ -127,12 +132,34 @@ article {
 }
 
 // ============================================
-// GLOBAL: NO BORDER RADIUS ANYWHERE
+// GLOBAL: SOFT ROUNDED CORNERS
 // ============================================
-*,
-*::before,
-*::after {
-  border-radius: 0 !important;
+// Apply rounded corners to key elements for modern, soft aesthetic
+.section-container,
+.callout-section,
+.feature-item,
+.event-item,
+.team-member,
+.cta-button,
+header,
+footer,
+.callout,
+blockquote,
+table,
+pre {
+  border-radius: var(--border-radius) !important;
+}
+
+// Smaller radius for buttons and small elements
+button,
+.action-button,
+.nav-toggle {
+  border-radius: var(--border-radius-small) !important;
+}
+
+// Larger radius for hero sections
+.hero-section {
+  border-radius: var(--border-radius-large) !important;
 }
 
 // ============================================
@@ -160,12 +187,16 @@ body {
   }
 }
 
-// PAGE-LEVEL WIDTH CONSTRAINTS
+// PAGE-LEVEL WIDTH CONSTRAINTS - Full width desktop
 .page {
-  max-width: 800px !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
-  padding: 0 2rem !important;
+  padding: 0 clamp(1.5rem, 5vw, 4rem) !important;
   transition: padding 0.2s ease;
+  
+  @media (max-width: 1024px) {
+    padding: 0 2rem !important;
+  }
   
   @media (max-width: 639px) {
     padding: 0 1rem !important;
@@ -177,10 +208,14 @@ body {
 }
 
 #quartz-body {
-  max-width: 800px !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
-  padding: 0 2rem !important;
+  padding: 0 clamp(1.5rem, 5vw, 4rem) !important;
   transition: padding 0.2s ease;
+  
+  @media (max-width: 1024px) {
+    padding: 0 2rem !important;
+  }
   
   @media (max-width: 639px) {
     padding: 0 1rem !important;
@@ -454,24 +489,33 @@ header .search button p {
   width: 0 !important;
 }
 
-// Center content with max-width
+// Center content - Full width desktop
 .center {
   grid-column: 1 / 4 !important;
   width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
   padding-top: 1rem;
   padding-bottom: 2rem;
   box-sizing: border-box;
   
+  @media (max-width: 1024px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
   @media (max-width: 639px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
     padding-top: 0.75rem;
     padding-bottom: 1.5rem;
   }
   
   @media (max-width: 375px) {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
     padding-top: 0.5rem;
     padding-bottom: 1rem;
   }

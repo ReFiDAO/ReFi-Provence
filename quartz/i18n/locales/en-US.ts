@@ -66,8 +66,8 @@ export default {
     navigation: {
       about: "About",
       events: "Events",
-      regenerantCatalunya: "Regenerant Catalunya",
-      ecosystemMap: "Ecosystem Map",
+      partners: "Partners",
+      joinCommunity: "Join Community",
       contact: "Contact",
       blog: "Blog",
     },
