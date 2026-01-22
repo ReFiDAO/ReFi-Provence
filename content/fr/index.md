@@ -10,7 +10,7 @@ description: "Technology for nature. A regenerative hub from Provence."
         <h1>Et si les innovations technologiques pouvaient aider la nature ?</h1>
       </div>
       <div class="hero-image">
-        <img src="/static/hero_home.png" alt="ReFi Provence illustration"/>
+        <!-- Hero image will be added here -->
       </div>
     </div>
     <div class="hero-bottom">
@@ -97,13 +97,11 @@ ReFi Provence travaille sur plusieurs initiatives pour connecter les mouvements 
 
   <div class="team-grid">
     <div class="team-member">
-      <img src="/static/flora.jpg" alt="Flora"/>
       <p class="team-name"><a href="https://www.linkedin.com/in/flora-event/">Flora</a></p>
       <p class="team-role">Co-fondatrice</p>
       <p class="team-bio">Bio à venir.</p>
     </div>
     <div class="team-member">
-      <img src="/static/alejandra.jpg" alt="Alejandra"/>
       <p class="team-name"><a href="https://www.linkedin.com/in/alejandra-verde-medina/">Alejandra</a></p>
       <p class="team-role">Co-fondatrice</p>
       <p class="team-bio">Bio à venir.</p>
@@ -137,9 +135,7 @@ ReFi Provence travaille sur plusieurs initiatives pour connecter les mouvements 
 </div>
 
 <div class="hero-image">
-
-<img src="/static/refi-illustration.jpg" alt="Illustration ReFi"/>
-
+<!-- ReFi illustration will be added here -->
 </div>
 
 </div>

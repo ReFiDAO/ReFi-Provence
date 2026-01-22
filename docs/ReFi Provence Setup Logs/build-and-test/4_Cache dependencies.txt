@@ -1,0 +1,12 @@
+﻿2026-01-21T23:22:23.8028613Z ##[group]Run actions/cache@v4
+2026-01-21T23:22:23.8028938Z with:
+2026-01-21T23:22:23.8029151Z   path: ~/.npm
+2026-01-21T23:22:23.8029361Z   key: Linux-node-
+2026-01-21T23:22:23.8030007Z   restore-keys: Linux-node-
+
+2026-01-21T23:22:23.8030502Z   enableCrossOsArchive: false
+2026-01-21T23:22:23.8030770Z   fail-on-cache-miss: false
+2026-01-21T23:22:23.8031016Z   lookup-only: false
+2026-01-21T23:22:23.8031243Z   save-always: false
+2026-01-21T23:22:23.8031461Z ##[endgroup]
+2026-01-21T23:22:24.2241201Z Cache not found for input keys: Linux-node-, Linux-node-

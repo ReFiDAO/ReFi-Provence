@@ -23,24 +23,25 @@ function getCurrentLanguage(slug: FullSlug): string {
 }
 
 function getLanguagePrefix(locale: string, slug: FullSlug): string {
+  // First, check if slug has a language prefix
+  const segments = slug.split("/").filter((s) => s.length > 0)
+  const firstSegment = segments[0]
+  
+  // If slug explicitly starts with a language prefix, use that
+  if (firstSegment === "fr") return "/fr"
+  if (firstSegment === "en") return "/en"
+  if (firstSegment === "ca") return "/ca"
+  if (firstSegment === "es") return "/es"
+  
+  // If slug doesn't have a prefix, determine from locale
   const prefix = LOCALE_PREFIXES[locale] || "fr"
   
-  // For French (default), check if we're explicitly on /fr/ path
+  // For French (default), use root (empty prefix)
   if (prefix === "fr") {
-    const segments = slug.split("/").filter((s) => s.length > 0)
-    const firstSegment = segments[0]
-    // If slug starts with "fr", use /fr prefix, otherwise use root
-    return firstSegment === "fr" ? "/fr" : ""
+    return ""
   }
   
-  // For English, check if we're explicitly on /en/ path
-  if (prefix === "en") {
-    const segments = slug.split("/").filter((s) => s.length > 0)
-    const firstSegment = segments[0]
-    // If slug starts with "en", use /en prefix, otherwise use root
-    return firstSegment === "en" ? "/en" : ""
-  }
-  
+  // For other languages, use their prefix
   return `/${prefix}`
 }
 
@@ -58,17 +59,13 @@ function getHomepageHashLink(langPrefix: string, hash: string): string {
 export default (() => {
   const Navigation: QuartzComponent = ({ displayClass, cfg, fileData }: QuartzComponentProps) => {
     const currentSlug = fileData.slug || ("index" as FullSlug)
-    // Use cfg.locale as primary source for language detection since slug might not include language prefix
-    const currentLang = getCurrentLanguage(currentSlug) || (cfg.locale as string)
+    // Detect language from slug first, fallback to cfg.locale
+    const currentLang = getCurrentLanguage(currentSlug)
     const navCopy = i18n(cfg.locale).components.navigation
     
-    // For language prefix, prefer cfg.locale if slug doesn't have language info
-    let detectedLang = currentLang
-    if (currentLang === "en-US" && cfg.locale !== "en-US") {
-      detectedLang = cfg.locale as string
-    }
-    
-    const langPrefix = getLanguagePrefix(detectedLang, currentSlug)
+    // Determine language prefix based on slug and locale
+    // If slug has language prefix, use that; otherwise use cfg.locale
+    const langPrefix = getLanguagePrefix(currentLang, currentSlug)
     
     // Build page links with language prefix
     const getPageLink = (page: string): string => {

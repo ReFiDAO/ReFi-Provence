@@ -1,0 +1,176 @@
+﻿2026-01-21T23:22:18.5570235Z Current runner version: '2.331.0'
+2026-01-21T23:22:18.5594157Z ##[group]Runner Image Provisioner
+2026-01-21T23:22:18.5595029Z Hosted Compute Agent
+2026-01-21T23:22:18.5595603Z Version: 20251211.462
+2026-01-21T23:22:18.5596223Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2026-01-21T23:22:18.5596923Z Build Date: 2025-12-11T16:28:49Z
+2026-01-21T23:22:18.5597604Z Worker ID: {4e6eea23-b470-4ab7-b104-7e63972a2ca0}
+2026-01-21T23:22:18.5598291Z ##[endgroup]
+2026-01-21T23:22:18.5598818Z ##[group]Operating System
+2026-01-21T23:22:18.5599322Z Ubuntu
+2026-01-21T23:22:18.5600249Z 24.04.3
+2026-01-21T23:22:18.5600719Z LTS
+2026-01-21T23:22:18.5601118Z ##[endgroup]
+2026-01-21T23:22:18.5601727Z ##[group]Runner Image
+2026-01-21T23:22:18.5602230Z Image: ubuntu-24.04
+2026-01-21T23:22:18.5602714Z Version: 20260111.209.1
+2026-01-21T23:22:18.5603746Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260111.209/images/ubuntu/Ubuntu2404-Readme.md
+2026-01-21T23:22:18.5605272Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260111.209
+2026-01-21T23:22:18.5606309Z ##[endgroup]
+2026-01-21T23:22:18.5607269Z ##[group]GITHUB_TOKEN Permissions
+2026-01-21T23:22:18.5609221Z Contents: read
+2026-01-21T23:22:18.5610020Z Metadata: read
+2026-01-21T23:22:18.5610587Z ##[endgroup]
+2026-01-21T23:22:18.5612930Z Secret source: Actions
+2026-01-21T23:22:18.5613665Z Prepare workflow directory
+2026-01-21T23:22:18.5937153Z Prepare all required actions
+2026-01-21T23:22:18.5974072Z Getting action download info
+2026-01-21T23:22:19.1272253Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-01-21T23:22:19.2573270Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-01-21T23:22:19.3915968Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-01-21T23:22:19.5963382Z Complete job name: build-and-test
+2026-01-21T23:22:19.6661591Z ##[group]Run actions/checkout@v4
+2026-01-21T23:22:19.6662806Z with:
+2026-01-21T23:22:19.6663191Z   fetch-depth: 0
+2026-01-21T23:22:19.6663596Z   repository: ReFiDAO/ReFi-Provence
+2026-01-21T23:22:19.6664239Z   token: ***
+2026-01-21T23:22:19.6664609Z   ssh-strict: true
+2026-01-21T23:22:19.6664981Z   ssh-user: git
+2026-01-21T23:22:19.6665362Z   persist-credentials: true
+2026-01-21T23:22:19.6665785Z   clean: true
+2026-01-21T23:22:19.6666166Z   sparse-checkout-cone-mode: true
+2026-01-21T23:22:19.6666625Z   fetch-tags: false
+2026-01-21T23:22:19.6667010Z   show-progress: true
+2026-01-21T23:22:19.6667383Z   lfs: false
+2026-01-21T23:22:19.6667736Z   submodules: false
+2026-01-21T23:22:19.6668129Z   set-safe-directory: true
+2026-01-21T23:22:19.6668837Z ##[endgroup]
+2026-01-21T23:22:19.7725480Z Syncing repository: ReFiDAO/ReFi-Provence
+2026-01-21T23:22:19.7727131Z ##[group]Getting Git version info
+2026-01-21T23:22:19.7727930Z Working directory is '/home/runner/work/ReFi-Provence/ReFi-Provence'
+2026-01-21T23:22:19.7729093Z [command]/usr/bin/git version
+2026-01-21T23:22:19.7817027Z git version 2.52.0
+2026-01-21T23:22:19.7842690Z ##[endgroup]
+2026-01-21T23:22:19.7856583Z Temporarily overriding HOME='/home/runner/work/_temp/6ae89428-6ee1-4953-aa7d-3ee8394f6640' before making global git config changes
+2026-01-21T23:22:19.7858921Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-21T23:22:19.7870503Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ReFi-Provence/ReFi-Provence
+2026-01-21T23:22:19.7909034Z Deleting the contents of '/home/runner/work/ReFi-Provence/ReFi-Provence'
+2026-01-21T23:22:19.7913254Z ##[group]Initializing the repository
+2026-01-21T23:22:19.7917912Z [command]/usr/bin/git init /home/runner/work/ReFi-Provence/ReFi-Provence
+2026-01-21T23:22:19.8071284Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-01-21T23:22:19.8072804Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-01-21T23:22:19.8074332Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-01-21T23:22:19.8075812Z hint: call:
+2026-01-21T23:22:19.8076379Z hint:
+2026-01-21T23:22:19.8077109Z hint: 	git config --global init.defaultBranch <name>
+2026-01-21T23:22:19.8077922Z hint:
+2026-01-21T23:22:19.8078460Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-01-21T23:22:19.8079346Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-01-21T23:22:19.8080296Z hint:
+2026-01-21T23:22:19.8080673Z hint: 	git branch -m <name>
+2026-01-21T23:22:19.8081090Z hint:
+2026-01-21T23:22:19.8081670Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-01-21T23:22:19.8083129Z Initialized empty Git repository in /home/runner/work/ReFi-Provence/ReFi-Provence/.git/
+2026-01-21T23:22:19.8087785Z [command]/usr/bin/git remote add origin https://github.com/ReFiDAO/ReFi-Provence
+2026-01-21T23:22:19.8121565Z ##[endgroup]
+2026-01-21T23:22:19.8122264Z ##[group]Disabling automatic garbage collection
+2026-01-21T23:22:19.8125535Z [command]/usr/bin/git config --local gc.auto 0
+2026-01-21T23:22:19.8153310Z ##[endgroup]
+2026-01-21T23:22:19.8153952Z ##[group]Setting up auth
+2026-01-21T23:22:19.8160022Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-21T23:22:19.8189054Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-21T23:22:19.8545731Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-21T23:22:19.8574472Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-21T23:22:19.8791355Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-21T23:22:19.8820216Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-21T23:22:19.9046094Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-01-21T23:22:19.9079305Z ##[endgroup]
+2026-01-21T23:22:19.9080270Z ##[group]Fetching the repository
+2026-01-21T23:22:19.9087935Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-01-21T23:22:21.0506128Z From https://github.com/ReFiDAO/ReFi-Provence
+2026-01-21T23:22:21.0537623Z  * [new branch]      main       -> origin/main
+2026-01-21T23:22:21.0545368Z [command]/usr/bin/git branch --list --remote origin/main
+2026-01-21T23:22:21.0567831Z   origin/main
+2026-01-21T23:22:21.0575926Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-01-21T23:22:21.0595266Z ba0c6a3dbb2960732ec63060dcb6af6c0b99b7da
+2026-01-21T23:22:21.0599938Z ##[endgroup]
+2026-01-21T23:22:21.0601017Z ##[group]Determining the checkout info
+2026-01-21T23:22:21.0602123Z ##[endgroup]
+2026-01-21T23:22:21.0605637Z [command]/usr/bin/git sparse-checkout disable
+2026-01-21T23:22:21.0644550Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-01-21T23:22:21.0669015Z ##[group]Checking out the ref
+2026-01-21T23:22:21.0673143Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-01-21T23:22:21.1876234Z Switched to a new branch 'main'
+2026-01-21T23:22:21.1877748Z branch 'main' set up to track 'origin/main'.
+2026-01-21T23:22:21.1895599Z ##[endgroup]
+2026-01-21T23:22:21.1934358Z [command]/usr/bin/git log -1 --format=%H
+2026-01-21T23:22:21.1955984Z ba0c6a3dbb2960732ec63060dcb6af6c0b99b7da
+2026-01-21T23:22:21.2212255Z ##[group]Run actions/setup-node@v4
+2026-01-21T23:22:21.2212883Z with:
+2026-01-21T23:22:21.2213249Z   node-version: 22
+2026-01-21T23:22:21.2213665Z   always-auth: false
+2026-01-21T23:22:21.2214092Z   check-latest: false
+2026-01-21T23:22:21.2214935Z   token: ***
+2026-01-21T23:22:21.2215318Z ##[endgroup]
+2026-01-21T23:22:21.3973599Z Found in cache @ /opt/hostedtoolcache/node/22.21.1/x64
+2026-01-21T23:22:21.3980643Z ##[group]Environment details
+2026-01-21T23:22:23.7124608Z node: v22.21.1
+2026-01-21T23:22:23.7125093Z npm: 10.9.4
+2026-01-21T23:22:23.7125466Z yarn: 1.22.22
+2026-01-21T23:22:23.7128841Z ##[endgroup]
+2026-01-21T23:22:23.8028632Z ##[group]Run actions/cache@v4
+2026-01-21T23:22:23.8028943Z with:
+2026-01-21T23:22:23.8029155Z   path: ~/.npm
+2026-01-21T23:22:23.8029364Z   key: Linux-node-
+2026-01-21T23:22:23.8030022Z   restore-keys: Linux-node-
+
+2026-01-21T23:22:23.8030507Z   enableCrossOsArchive: false
+2026-01-21T23:22:23.8030775Z   fail-on-cache-miss: false
+2026-01-21T23:22:23.8031020Z   lookup-only: false
+2026-01-21T23:22:23.8031245Z   save-always: false
+2026-01-21T23:22:23.8031464Z ##[endgroup]
+2026-01-21T23:22:24.2241254Z Cache not found for input keys: Linux-node-, Linux-node-
+2026-01-21T23:22:24.2368476Z ##[group]Run npm ci
+2026-01-21T23:22:24.2368770Z [36;1mnpm ci[0m
+2026-01-21T23:22:24.2441771Z shell: /usr/bin/bash -e {0}
+2026-01-21T23:22:24.2442029Z ##[endgroup]
+2026-01-21T23:22:25.7627665Z npm error code EUSAGE
+2026-01-21T23:22:25.7630026Z npm error
+2026-01-21T23:22:25.7630889Z npm error The `npm ci` command can only install with an existing package-lock.json or
+2026-01-21T23:22:25.7632073Z npm error npm-shrinkwrap.json with lockfileVersion >= 1. Run an install with npm@5 or
+2026-01-21T23:22:25.7633121Z npm error later to generate a package-lock.json file, then try again.
+2026-01-21T23:22:25.7633622Z npm error
+2026-01-21T23:22:25.7633937Z npm error Clean install a project
+2026-01-21T23:22:25.7634235Z npm error
+2026-01-21T23:22:25.7634469Z npm error Usage:
+2026-01-21T23:22:25.7634709Z npm error npm ci
+2026-01-21T23:22:25.7634938Z npm error
+2026-01-21T23:22:25.7635189Z npm error Options:
+2026-01-21T23:22:25.7635755Z npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+2026-01-21T23:22:25.7636451Z npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+2026-01-21T23:22:25.7637138Z npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+2026-01-21T23:22:25.7637833Z npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+2026-01-21T23:22:25.7638366Z npm error [--no-bin-links] [--no-fund] [--dry-run]
+2026-01-21T23:22:25.7638900Z npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+2026-01-21T23:22:25.7639505Z npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+2026-01-21T23:22:25.7640153Z npm error
+2026-01-21T23:22:25.7640563Z npm error aliases: clean-install, ic, install-clean, isntall-clean
+2026-01-21T23:22:25.7640935Z npm error
+2026-01-21T23:22:25.7641227Z npm error Run "npm help ci" for more info
+2026-01-21T23:22:25.7643908Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2026-01-21T23_22_24_296Z-debug-0.log
+2026-01-21T23:22:25.8095111Z ##[error]Process completed with exit code 1.
+2026-01-21T23:22:25.8187981Z Post job cleanup.
+2026-01-21T23:22:25.9115790Z [command]/usr/bin/git version
+2026-01-21T23:22:25.9151634Z git version 2.52.0
+2026-01-21T23:22:25.9194939Z Temporarily overriding HOME='/home/runner/work/_temp/cb61c6d4-f117-4603-9277-7d28b944854d' before making global git config changes
+2026-01-21T23:22:25.9196486Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-21T23:22:25.9201676Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/ReFi-Provence/ReFi-Provence
+2026-01-21T23:22:25.9236390Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-21T23:22:25.9268530Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-21T23:22:25.9496040Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-21T23:22:25.9517758Z http.https://github.com/.extraheader
+2026-01-21T23:22:25.9530249Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-01-21T23:22:25.9560367Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-21T23:22:25.9775786Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-21T23:22:25.9805996Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-21T23:22:26.0128827Z Cleaning up orphan processes
