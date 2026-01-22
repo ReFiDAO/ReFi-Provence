@@ -3,43 +3,39 @@ import { classNames } from "../util/lang"
 import { i18n, ValidLocale } from "../i18n"
 import { FullSlug } from "../util/path"
 
-const SUPPORTED_LOCALES: ValidLocale[] = ["en-US", "ca-ES", "es-ES"]
+const SUPPORTED_LOCALES: ValidLocale[] = ["fr-FR", "en-US"]
 const LOCALE_PREFIXES: Record<ValidLocale, string> = {
+  "fr-FR": "fr",
   "en-US": "en",
-  "ca-ES": "ca",
-  "es-ES": "es",
 }
 const LOCALE_NAMES: Record<ValidLocale, string> = {
+  "fr-FR": "FR",
   "en-US": "EN",
-  "ca-ES": "CA",
-  "es-ES": "ES",
 }
 
 function getCurrentLanguage(slug: FullSlug): ValidLocale {
   // Try to detect from slug first
-  const segments = slug.split("/").filter((s) => s.length > 0)
+  const segments = slug.split("/").filter((s: string) => s.length > 0)
   const firstSegment = segments[0]
   
   // Check if first segment is a language code
-  if (firstSegment === "ca") return "ca-ES"
-  if (firstSegment === "es") return "es-ES"
+  if (firstSegment === "fr") return "fr-FR"
   if (firstSegment === "en") return "en-US"
   
   // If slug doesn't have language prefix, try to detect from window location (client-side)
   if (typeof window !== "undefined") {
     const path = window.location.pathname
-    if (path.startsWith("/ca/") || path === "/ca") return "ca-ES"
-    if (path.startsWith("/es/") || path === "/es") return "es-ES"
+    if (path.startsWith("/fr/") || path === "/fr") return "fr-FR"
     if (path.startsWith("/en/") || path === "/en") return "en-US"
   }
   
-  // Default to English if no language prefix
-  return "en-US"
+  // Default to French if no language prefix
+  return "fr-FR"
 }
 
 function getLanguagePath(slug: FullSlug, targetLocale: ValidLocale): string {
   const currentLang = getCurrentLanguage(slug)
-  let segments = slug.split("/").filter((s) => s.length > 0)
+  let segments = slug.split("/").filter((s: string) => s.length > 0)
   
   // Remove current language prefix if present
   const currentPrefix = LOCALE_PREFIXES[currentLang]
@@ -57,9 +53,9 @@ function getLanguagePath(slug: FullSlug, targetLocale: ValidLocale): string {
   if (typeof window !== "undefined" && segments.length === 0) {
     const currentPath = window.location.pathname
     // Extract path segments after language prefix
-    const pathMatch = currentPath.match(/^\/(?:ca|es|en)(\/.*)?$/)
+    const pathMatch = currentPath.match(/^\/(?:fr|en)(\/.*)?$/)
     if (pathMatch && pathMatch[1]) {
-      segments = pathMatch[1].split("/").filter((s) => s.length > 0 && s !== "index")
+      segments = pathMatch[1].split("/").filter((s: string) => s.length > 0 && s !== "index")
     }
   }
   
@@ -67,12 +63,12 @@ function getLanguagePath(slug: FullSlug, targetLocale: ValidLocale): string {
   const targetPrefix = LOCALE_PREFIXES[targetLocale]
   const pathWithoutLang = segments.length > 0 ? `/${segments.join("/")}` : ""
   
-  if (targetPrefix === "en") {
-    // English can be at root or /en/
+  if (targetPrefix === "fr") {
+    // French is default, can be at root or /fr/
     return pathWithoutLang || "/"
   }
   
-  // For other languages, add prefix
+  // For English, add prefix
   return `/${targetPrefix}${pathWithoutLang}`
 }
 
@@ -84,7 +80,7 @@ const LanguageSwitcher: QuartzComponent = ({ displayClass, cfg, fileData }: Quar
   // Detect actual current language from slug or config locale
   let actualLang = getCurrentLanguage(currentSlug)
   // If slug doesn't have language info, use config locale
-  if (actualLang === "en-US" && currentLocale !== "en-US") {
+  if (actualLang === "fr-FR" && currentLocale !== "fr-FR") {
     actualLang = currentLocale as ValidLocale
   }
   
@@ -99,10 +95,10 @@ const LanguageSwitcher: QuartzComponent = ({ displayClass, cfg, fileData }: Quar
           // generate better initial paths
           if (currentSlug === "index" && currentLocale === locale) {
             const prefix = LOCALE_PREFIXES[locale]
-            path = prefix === "en" ? "/" : `/${prefix}/`
+            path = prefix === "fr" ? "/" : `/${prefix}/`
           } else if (currentSlug === "index") {
             const prefix = LOCALE_PREFIXES[locale]
-            path = prefix === "en" ? "/" : `/${prefix}/`
+            path = prefix === "fr" ? "/" : `/${prefix}/`
           }
           const localeName = LOCALE_NAMES[locale]
           
@@ -213,7 +209,7 @@ LanguageSwitcher.afterDOMLoaded = `
     
     // Extract current path without language prefix
     let pathWithoutLang = currentPath;
-    const langMatch = currentPath.match(/^\\/(ca|es|en)(\\/.*)?$/);
+    const langMatch = currentPath.match(/^\\/(fr|en)(\\/.*)?$/);
     if (langMatch) {
       pathWithoutLang = langMatch[2] || '/';
     } else if (currentPath === '/') {
@@ -230,12 +226,10 @@ LanguageSwitcher.afterDOMLoaded = `
       const locale = link.getAttribute('data-locale');
       let newPath = '';
       
-      if (locale === 'en-US') {
+      if (locale === 'fr-FR') {
         newPath = pathWithoutLang === '/' ? '/' : pathWithoutLang;
-      } else if (locale === 'ca-ES') {
-        newPath = '/ca' + (pathWithoutLang === '/' ? '' : pathWithoutLang);
-      } else if (locale === 'es-ES') {
-        newPath = '/es' + (pathWithoutLang === '/' ? '' : pathWithoutLang);
+      } else if (locale === 'en-US') {
+        newPath = '/en' + (pathWithoutLang === '/' ? '' : pathWithoutLang);
       }
       
       link.setAttribute('href', newPath);

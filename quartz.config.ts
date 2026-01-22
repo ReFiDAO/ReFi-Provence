@@ -14,7 +14,6 @@ import * as Plugin from "./quartz/plugins"
 
 // Support environment variables for multi-language builds
 const LOCALE = (process.env.QUARTZ_LOCALE as string) || "fr-FR"
-const CONTENT_DIR = (process.env.QUARTZ_CONTENT_DIR as string) || "content"
 
 const config: QuartzConfig = {
   configuration: {
@@ -22,6 +21,7 @@ const config: QuartzConfig = {
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
+    analytics: null,
     locale: LOCALE as any,
     baseUrl: "https://refidao.github.io/ReFi-Provence",
     ignorePatterns: ["private", "templates", ".obsidian"],

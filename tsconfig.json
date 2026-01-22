@@ -18,6 +18,6 @@
     "jsxImportSource": "preact"
   },
   "include": ["**/*.ts", "**/*.tsx", "./package.json"],
-  "exclude": ["build/**/*.d.ts"]
+  "exclude": ["build/**/*.d.ts", "packages/**/*", "node_modules/**/*"]
 }
 
