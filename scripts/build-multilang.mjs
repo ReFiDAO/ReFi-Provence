@@ -182,8 +182,9 @@ async function main() {
   // Merge static assets
   mergeStaticAssets()
   
-  // Create root redirect (overwrite the default locale index.html)
-  createRootRedirect()
+  // Don't create root redirect - serve French content directly at root
+  // createRootRedirect()
+  console.log("✅ French content served at root (/) - English at /en/")
   
   console.log("\n✨ Multi-language build complete!")
   console.log("\n📁 Output structure:")
