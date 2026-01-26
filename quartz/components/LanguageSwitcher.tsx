@@ -90,6 +90,7 @@ const LanguageSwitcher: QuartzComponent = ({ displayClass, cfg, fileData }: Quar
               aria-label={`${langCopy.selectLanguage}: ${localeName}`}
               aria-current={isActive ? "page" : undefined}
               data-locale={locale}
+              data-no-spa
             >
               {localeName}
             </a>
