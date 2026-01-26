@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+public/
+.quartz-cache/
+quartz/.quartz-cache/
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# IDEs
+.vscode/
+.idea/

@@ -14,7 +14,7 @@ export default ((opts?: Options) => {
     return (
       <footer class={`${displayClass ?? ""}`}>
         <div class="footer-logo">
-          <img src="/static/ReFiBCN.png" alt="ReFi Barcelona" />
+          <img src="/static/refi-provence-logo.png" alt="ReFi Provence" />
         </div>
         <div class="footer-content">
           <div class="footer-links">
