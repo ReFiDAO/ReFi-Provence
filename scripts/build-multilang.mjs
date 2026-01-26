@@ -131,12 +131,13 @@ function createRootRedirect() {
     // Detect browser language and redirect
     const lang = navigator.language || navigator.userLanguage;
     const locales = ${JSON.stringify(LOCALES.map(l => ({ prefix: l.prefix, code: l.code })))};
-    let redirect = '/${defaultPrefix}/';
+    let redirect = '/';  // Default to root for French
     
     // Find matching locale
     for (const locale of locales) {
       if (lang.startsWith(locale.code.split('-')[0])) {
-        redirect = '/' + locale.prefix + '/';
+        // Only add prefix for non-default locales (English)
+        redirect = locale.prefix === 'fr' ? '/' : '/' + locale.prefix + '/';
         break;
       }
     }
@@ -151,7 +152,7 @@ function createRootRedirect() {
     }
   </script>
   <noscript>
-    <meta http-equiv="refresh" content="0; url=/${defaultPrefix}/">
+    <meta http-equiv="refresh" content="0; url=/">
   </noscript>
 </head>
 <body>
