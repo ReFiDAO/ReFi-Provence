@@ -36,7 +36,7 @@ function getLanguagePrefix(locale: string, slug: FullSlug): string {
 }
 
 const PageTitle: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzComponentProps) => {
-  const title = "ReFi Barcelona"
+  const title = "ReFi Provence"
   const currentSlug = fileData.slug || ("index" as FullSlug)
   // Use cfg.locale as primary source for language detection since slug might not include language prefix
   const currentLang = getCurrentLanguage(currentSlug) || (cfg.locale as string)
@@ -54,7 +54,7 @@ const PageTitle: QuartzComponent = ({ cfg, displayClass, fileData }: QuartzCompo
   return (
     <h2 class={classNames(displayClass, "page-title")}>
       <a href={homeLink}>
-        <img src="/static/refi-bcn-logo.png" alt="ReFi BCN Logo" class="page-title-logo" />
+        <img src="/static/refi-provence-logo.png" alt="ReFi Provence" class="page-title-logo" />
         <span>{title}</span>
       </a>
     </h2>
