@@ -156,7 +156,7 @@ function createRootRedirect() {
   </noscript>
 </head>
 <body>
-  <p>Redirection... <a href="/${defaultPrefix}/">Cliquez ici si vous n'êtes pas redirigé</a></p>
+  <p>Redirection... <a href="/">Cliquez ici si vous n'êtes pas redirigé</a></p>
 </body>
 </html>`
   
