@@ -7,16 +7,17 @@ export const sharedPageComponents: SharedLayout = {
   header: [
     Component.PageTitle(),
     Component.Navigation(),
-    Component.Search(),
+    // Component.Search(), // Removed per questionnaire requirement
     Component.LanguageSwitcher(),
   ],
   afterBody: [],
   footer: Component.Footer({
     links: {
-      "ReFi Provence": "https://refidao.github.io/refi-provence",
+      "ReFi Provence": "https://refidao.github.io/ReFi-Provence",
       "LinkedIn": "https://www.linkedin.com/company/refi-provence/",
       "Telegram": "https://t.me/refipaca",
       "Twitter/X": "https://x.com/ReFi_Provence",
+      "YouTube": "https://youtube.com/@ReFiProvence",
       "ReFi DAO": "https://refidao.com",
     },
   }),

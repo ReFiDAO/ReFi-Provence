@@ -34,42 +34,23 @@ function getCurrentLanguage(slug: FullSlug): ValidLocale {
 }
 
 function getLanguagePath(slug: FullSlug, targetLocale: ValidLocale): string {
-  const currentLang = getCurrentLanguage(slug)
-  let segments = slug.split("/").filter((s: string) => s.length > 0)
+  // Remove any existing language prefix from slug
+  let cleanPath = slug
+    .replace(/^(fr|en)\//, '')
+    .replace(/\/index$/, '')
+    .replace(/^index$/, '')
   
-  // Remove current language prefix if present
-  const currentPrefix = LOCALE_PREFIXES[currentLang]
-  if (segments[0] === currentPrefix) {
-    segments.shift()
+  // Normalize path
+  if (cleanPath && !cleanPath.startsWith('/')) cleanPath = '/' + cleanPath
+  if (!cleanPath) cleanPath = '/'
+  
+  // For French (default), use root or path without prefix
+  if (targetLocale === 'fr-FR') {
+    return cleanPath === '/' ? '/' : cleanPath
   }
   
-  // Handle index pages - remove "index" from segments
-  if (segments.length > 0 && segments[segments.length - 1] === "index") {
-    segments.pop()
-  }
-  
-  // If we're on the index page and slug doesn't have language info,
-  // try to get the current path from window (client-side)
-  if (typeof window !== "undefined" && segments.length === 0) {
-    const currentPath = window.location.pathname
-    // Extract path segments after language prefix
-    const pathMatch = currentPath.match(/^\/(?:fr|en)(\/.*)?$/)
-    if (pathMatch && pathMatch[1]) {
-      segments = pathMatch[1].split("/").filter((s: string) => s.length > 0 && s !== "index")
-    }
-  }
-  
-  // Add target language prefix
-  const targetPrefix = LOCALE_PREFIXES[targetLocale]
-  const pathWithoutLang = segments.length > 0 ? `/${segments.join("/")}` : ""
-  
-  if (targetPrefix === "fr") {
-    // French is default, can be at root or /fr/
-    return pathWithoutLang || "/"
-  }
-  
-  // For English, add prefix
-  return `/${targetPrefix}${pathWithoutLang}`
+  // For English, add /en prefix
+  return '/en' + (cleanPath === '/' ? '' : cleanPath)
 }
 
 const LanguageSwitcher: QuartzComponent = ({ displayClass, cfg, fileData }: QuartzComponentProps) => {
@@ -201,45 +182,32 @@ LanguageSwitcher.css = `
 LanguageSwitcher.afterDOMLoaded = `
 (function() {
   function updateLanguageSwitcherLinks() {
-    const switcher = document.querySelector('.language-switcher__container');
-    if (!switcher) return;
-    
     const currentPath = window.location.pathname;
-    const links = switcher.querySelectorAll('a[data-locale]');
+    const links = document.querySelectorAll('.language-switcher__option');
     
-    // Extract current path without language prefix
-    let pathWithoutLang = currentPath;
-    const langMatch = currentPath.match(/^\\/(fr|en)(\\/.*)?$/);
-    if (langMatch) {
-      pathWithoutLang = langMatch[2] || '/';
-    } else if (currentPath === '/') {
-      pathWithoutLang = '/';
-    }
-    
-    // Normalize path - remove trailing slash except for root, remove index
-    if (pathWithoutLang !== '/') {
-      pathWithoutLang = pathWithoutLang.replace(/\\/$/, '').replace(/\\/index$/, '');
-      if (!pathWithoutLang) pathWithoutLang = '/';
-    }
+    // Extract clean path without language prefix
+    let cleanPath = currentPath
+      .replace(/^\\/(fr|en)(\\/|$)/, '/')
+      .replace(/\\/$/, '') || '/';
     
     links.forEach(function(link) {
       const locale = link.getAttribute('data-locale');
-      let newPath = '';
+      let newPath;
       
       if (locale === 'fr-FR') {
-        newPath = pathWithoutLang === '/' ? '/' : pathWithoutLang;
+        newPath = cleanPath;
       } else if (locale === 'en-US') {
-        newPath = '/en' + (pathWithoutLang === '/' ? '' : pathWithoutLang);
+        newPath = '/en' + (cleanPath === '/' ? '' : cleanPath);
       }
       
-      link.setAttribute('href', newPath);
+      link.href = newPath;
     });
   }
   
-  // Update on page load
+  // Update links on page load
   updateLanguageSwitcherLinks();
   
-  // Update after SPA navigation
+  // Update links on navigation (for SPA behavior)
   document.addEventListener('nav', updateLanguageSwitcherLinks);
 })();
 `

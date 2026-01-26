@@ -3,24 +3,17 @@ title: "ReFi Provence"
 description: "Technology for nature. A regenerative hub from Provence."
 ---
 
-<div class="hero-section">
-  <div class="hero-inner">
-    <div class="hero-top">
-      <div class="hero-title">
-        <h1>What if technological innovations could help nature?</h1>
-      </div>
-      <div class="hero-image">
-        <!-- Hero image will be added here -->
-      </div>
-    </div>
-    <div class="hero-bottom">
-      <p class="hero-text">
-        We connect Southern France's regenerative movements with global innovations in finance, 
-        technology, and governance to accelerate the transition toward a life-centered economy.
-      </p>
-      <a href="#contact" class="cta-button">Join Us</a>
-    </div>
-  </div>
+<div class="hero-banner-fullwidth">
+  <img src="/static/hero-banner.png" alt="ReFi Provence" />
+</div>
+
+<div class="hero-content">
+  <h1>What if technological innovations could help nature?</h1>
+  <p class="hero-text">
+    We connect Southern France's regenerative movements with global innovations in finance, 
+    technology, and governance to accelerate the transition toward a life-centered economy.
+  </p>
+  <a href="#contact" class="cta-button">Join Us</a>
 </div>
 
 <div id="about" class="section-container">

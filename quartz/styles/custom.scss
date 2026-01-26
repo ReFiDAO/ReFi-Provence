@@ -80,6 +80,46 @@ body {
 }
 
 // ============================================
+// FULL-WIDTH HERO BANNER
+// ============================================
+
+.hero-banner-fullwidth {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: -2rem;
+  margin-bottom: 3rem;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    max-height: 500px;
+  }
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 var(--layout-inline);
+  text-align: center;
+  
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-text {
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: var(--gray);
+  }
+}
+
+// ============================================
 // GLOBAL ACCENT COLORS
 // ============================================
 

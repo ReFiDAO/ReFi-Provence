@@ -71,14 +71,14 @@ PageTitle.css = `
 .page-title a {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
   text-decoration: none;
   border-bottom: none;
 }
 
 .page-title-logo {
-  width: 1.75rem;
-  height: 1.75rem;
+  width: 2rem;
+  height: 2rem;
   display: block;
   object-fit: contain;
 }
