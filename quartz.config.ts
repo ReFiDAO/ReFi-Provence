@@ -23,7 +23,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: null,
     locale: LOCALE as any,
-    baseUrl: "https://refidao.github.io/ReFi-Provence",
+    baseUrl: "provence.refidao.com",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
